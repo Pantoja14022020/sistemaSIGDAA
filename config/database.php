@@ -95,7 +95,7 @@ return [
 
         'mongodb' => [
             'driver' => 'mongodb',
-            'dsn' => env('DB_URI','mongodb+srv://sigda710:iz7eFFVxqPUAnL55@cluster0.qe8ua3c.mongodb.net/'),
+            'dsn' => env('DB_URI'),
             'database' => 'SIGDAA'
         ]
 
