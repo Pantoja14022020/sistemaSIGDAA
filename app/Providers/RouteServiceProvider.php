@@ -37,7 +37,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'))
                 ->group(base_path('routes/archivo_tramite.php'))
                 ->group(base_path('routes/transferencia_primaria.php'))
-                ->group(base_path('routes/usuario.php'));
+                ->group(base_path('routes/usuario.php'))
+                ->group(base_path('routes/control_correspondencia_emitidos.php'))
+                ->group(base_path('routes/control_correspondencia_recibidos.php'))
+                ->group(base_path('routes/login.php'));
         });
     }
 
