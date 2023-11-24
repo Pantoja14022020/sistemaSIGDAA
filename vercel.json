@@ -1,8 +1,7 @@
 {
     "version": 2,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.5.3" },
-        "public/**": {"runtime": "@vercel/static" }
+        "api/index.php": { "runtime": "vercel-php@0.5.3" }
     },
     "routes": [ { "src": "/build/(.*)", "dest": "/public/build/" }, { "src": "/resources/(.*)", "dest": "/public/resources/" }, { "src": "/favicon/(.*)", "dest": "/public/favicon/" }, { "src": "/(.*)", "dest": "/api/index.php" },{"src": "/(css|js|vendor|assets|build)/(.*)","dest": "public/$1/$2"}],
     "env": {
