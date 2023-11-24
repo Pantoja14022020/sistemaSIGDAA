@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
-        <link rel="stylesheet" href="{{ asset('public/css/archivo_tramite.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/archivo_tramite.css') }}">
         <title>Archivo de Trámite</title>
     </head>
     <body>
