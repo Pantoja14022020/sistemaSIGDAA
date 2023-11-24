@@ -1,0 +1,26 @@
+
+
+
+
+
+.form-registro{
+    padding: 2rem;
+    text-align: center;
+}
+.form-registro h4{
+    margin-bottom: 1rem;
+}
+.form-registro form{
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.form-registro form label{
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+.form-registro form input,select{
+    margin-bottom: 1.5rem;
+    padding: 0.5rem;
+}
