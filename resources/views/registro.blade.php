@@ -477,7 +477,7 @@
         />
         <input class="botons" type="submit" value="Registrar" />
 
-        <a href="#">¿Ya tengo Cuenta?</a>
+        <a href="/login">¿Ya tengo Cuenta?</a>
       </form>
     </section>
     <footer>

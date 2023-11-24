@@ -5,12 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TransferenciaPrimaria;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class TransferenciaPrimariaController extends Controller
 {
     //Muestra la pagina de transferencia primaria
     public function getTransferenciaPrimaria() {
-        return view('transferencia_primaria');
+        if(auth()->check()){//checar si el usuario esta autenticaod
+            
+            // Obtener el usuario autenticado 
+            $user = Auth::user();
+            $tipo_usuario = $user->tipo_usuario;
+
+            if($tipo_usuario === "2"){//Limitamos para que solo el usuario con el id 2 (responsabel expediente)... solo el pueda acceder a esa interfaz
+                return view('transferencia_primaria');
+            }else{//Sino eres el usuario con id 1... entonces.... no tienes acceso
+                return redirect('/principal');
+            }
+
+        }else{
+            return redirect('/login');
+        }
     }
 
     //Crea un registro de transferencia primaria

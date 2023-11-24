@@ -12,7 +12,11 @@ class UsuarioController extends Controller
 
     //Mostrar pagina de registro de usuario
     public function getRegistro() { 
-        return view('registro');
+        if(auth()->check()){
+            return redirect('/principal');
+        }else{
+            return view('registro');
+        }
     }
 
     public function postUsuario(Request $request){

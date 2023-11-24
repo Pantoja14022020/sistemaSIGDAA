@@ -5,12 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ControlCorrespondenciaRecibido;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ControlCorrespondenciaRecibidosController extends Controller
 {
     //Muestra la pagina de control_correspondencia_recibidos
     public function getControlCorrespondenciaRecibidos() {
-        return view('control_correspondencia_recibidos');
+        if(auth()->check()){
+
+            // Obtener el usuario autenticado 
+            $user = Auth::user();
+            $tipo_usuario = $user->tipo_usuario;
+
+            if($tipo_usuario === "1"){//Limitamos para que solo el usuario con el id 1 (responsabel correspondencia)... solo el pueda acceder a esa interfaz
+                return view('control_correspondencia_recibidos');
+            }else{//Sino eres el usuario con id 1... entonces.... no tienes acceso
+                return redirect('/principal');
+            }
+
+        }else{
+            return redirect('/login');
+        }
     }
 
     //Captura los datos enviados desde el formulario y lo almacena en la base de datos

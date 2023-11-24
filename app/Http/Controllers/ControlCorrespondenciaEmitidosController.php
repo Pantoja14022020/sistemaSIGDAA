@@ -5,12 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ControlCorrespondenciaEmitido;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ControlCorrespondenciaEmitidosController extends Controller
 {
     //Muestra la pagina de control_correspondencia_emitidos
     public function getControlCorrespondenciaEmitidos() {
-        return view('control_correspondencia_emitidos');
+        if(auth()->check()){
+
+            // Obtener el usuario autenticado 
+            $user = Auth::user();
+            $tipo_usuario = $user->tipo_usuario;
+
+            if($tipo_usuario === "1"){//Limitamos para que solo el usuario con el id 1 (responsabel correspondencia)... solo el pueda acceder a esa interfaz
+                return view('control_correspondencia_emitidos');
+            }else{//Sino eres el usuario con id 1... entonces.... no tienes acceso
+                return redirect('/principal');
+            }
+
+        }else{
+            return redirect('/login');
+        }
     }
 
     //Captura los datos enviados desde el formulario y lo almacena en la base de datos

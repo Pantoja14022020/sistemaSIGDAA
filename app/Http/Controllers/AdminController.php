@@ -9,7 +9,11 @@ class AdminController extends Controller
 {
     //Muestra la pagina de administrador
     public function getAdmin() {
-        return view('admin');
+        if(auth()->check()){
+            return view('admin');
+        }else{
+            return redirect('/login');
+        }
     }
 
 }

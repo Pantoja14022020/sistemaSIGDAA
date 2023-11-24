@@ -5,12 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ArchivoTramite;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ArchivoTramiteController extends Controller
 {
     //Muestra la pagina de archivo de tramite
     public function getArchivoTramite() {
-        return view('archivo_tramite');
+        if(auth()->check()){//Si el usuario esta autenticado o ya inicio sesion
+
+            // Obtener el usuario autenticado 
+            $user = Auth::user();
+            $tipo_usuario = $user->tipo_usuario;
+
+            if($tipo_usuario === "2"){//Limitamos para que solo el usuario con el id 2 (responsabel expediente)... solo el pueda acceder a esa interfaz
+                return view('archivo_tramite');
+            }else{//Sino eres el usuario con id 1... entonces.... no tienes acceso
+                return redirect('/principal');
+            }
+
+        }else{
+            return redirect('/login');
+        }
     }
 
     //Crea un registro de archivo de tramite

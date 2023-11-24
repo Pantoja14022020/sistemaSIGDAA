@@ -12,7 +12,11 @@ class LoginController extends Controller
 {
     //Muestra la pagina de login
     public function getLogin() {
-        return view('login');
+        if(auth()->check()){
+            return redirect('/principal');
+        }else{  
+            return view('login');
+        }
     }
 
     //Iniciar sesion
@@ -26,14 +30,12 @@ class LoginController extends Controller
         //dd($credentials);
         //Obtengo el valor de los campos del formulario de inicio de sesión que viene desde el objeto request
         //dd(Auth::attempt($credentials));
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials)) {//Si son correctas las credenciales, si coinciden....
             // Autenticación exitosa, redirige a la página que desees
-            return redirect('/archivo_tramite');
+            return redirect('/principal');
         }else{
-            dd('failed');
+            Auth::logout();
+            return redirect('/login');
         }
-
-        // Autenticación fallida
-        return redirect('/login');
     }
 }

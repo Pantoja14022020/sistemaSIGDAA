@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/transferencia_primaria.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
         <title>Trasferencia Primaria</title>
     </head>
     <body>
@@ -18,6 +19,25 @@
       <section class="nombre-dependencia">
         <h1>Dirección de Archivo General</h1>
       </section>
+      
+      <section class="smenu">
+        <nav>
+          <ul>
+            <li><a href="/principal">Inicio</a></li>
+            
+            <!--<option value="1">Responsable de control de correspondencia</option>
+            <option value="2">Responsable de expediente</option>
+            <option value="3">Enlace Operativo Normativo de Archivo</option>
+            <option value="4">Responsable institucional</option>
+            <option value="5">Responsable de archivo</option>-->
+            <li><a href="">¿Cómo completar los formularios?</a></li>
+            <li><a href="/transferencia_primaria">Transferencia Primaria</a></li>
+            <li><a href="/archivo_tramite">Archivo Tramite</a></li>
+            <li><a href="/logout">Cerrar Sesion </a></li>
+          </ul>
+        </nav>
+      </section>
+
       <section class="form-registro">
           <h4>Transferencia Primaria</h4>
           <script type="text/javascr"></script>

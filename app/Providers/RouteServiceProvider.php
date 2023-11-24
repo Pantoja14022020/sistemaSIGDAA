@@ -42,7 +42,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/control_correspondencia_recibidos.php'))
                 ->group(base_path('routes/login.php'))
                 ->group(base_path('routes/admin.php'))
-                ->group(base_path('routes/principal.php'));
+                ->group(base_path('routes/principal.php'))
+                ->group(base_path('routes/logout.php'));
         });
     }
 

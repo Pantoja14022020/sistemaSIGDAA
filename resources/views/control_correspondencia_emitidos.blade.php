@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
         <link rel="stylesheet" href="{{ asset('css/control_de_correspondencia.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
         <title>Control de correspondencia (Emitidos)</title>
     </head>
     <body>
@@ -18,6 +19,23 @@
       <section class="nombre-dependencia">
         <h1>Dirección de Archivo General</h1>
       </section>
+
+      <section class="smenu">
+        <nav>
+          <ul>
+            <li><a href="">Inicio</a></li>
+            <li><a href="">¿Cómo completar los formularios?</a></li>
+            <li id="ctrl_correspondencia">Control de correspondencia
+              <ul id="sub_ctr">
+                <li><a href="/control_correspondencia_emitidos">Emitidos</a></li>
+                <li><a href="/control_correspondencia_recibidos">Recibidos</a></li>
+              </ul>
+            </li>
+            <li><a href="/logout">Cerrar Sesion </a></li>
+          </ul>
+        </nav>
+      </section>
+
       <section class="form-registro" name="" action="">
           <h4>Control de Correspondencia (Emitidos)</h4>
           <script type="text/javascr"></script>
