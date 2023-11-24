@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;//Importo el modelo de usuario ya que es el que usuare para iniciar sesion
 use Illuminate\Support\Facades\Auth;
+//use IlluminateSupportFacadesAuth;
 use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
@@ -17,15 +18,22 @@ class LoginController extends Controller
     //Iniciar sesion
     public function postLogin(Request $request) {//Se reciben las credenciales que envia el usuario
         
+        /*$credentials = [
+            'correo' => $request->correo,
+            'password' => $request->contraseña,
+        ];*/
+        $credentials = $request->only('correo', 'password');
+        //dd($credentials);
         //Obtengo el valor de los campos del formulario de inicio de sesión que viene desde el objeto request
-        $credentials = $request->only('correo','contraseña');
-        
+        //dd(Auth::attempt($credentials));
         if (Auth::attempt($credentials)) {
-            // Autenticación exitosa
-            return redirect()->intended('/archivo_tramite');
+            // Autenticación exitosa, redirige a la página que desees
+            return redirect('/archivo_tramite');
+        }else{
+            dd('failed');
         }
 
         // Autenticación fallida
-        return redirect('/login')->with('error', 'Correo o contraseña incorrectos');
+        return redirect('/login');
     }
 }

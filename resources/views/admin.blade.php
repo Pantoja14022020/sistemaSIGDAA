@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UFT-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
-        <title>Login</title>
+        <meta name="viewport" content="width=device-width", initial-scale = 1.0>
+        <title>SIGDAA (Admin)</title>
+        <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/principal.css') }}" >
     </head>
     <body>
-      <header>
+    <header>
         <div class="header-info">
           <img src="./img/logo.png" alt="UAEH">
           <h1>Universidad Autónoma del Estado de Hidalgo</h1>
@@ -16,26 +17,14 @@
       </header>
       <section class="nombre-dependencia">
         <h1>Dirección de Archivo General</h1>
+      </section> 
+      <section class="smenu" id="header">
+      
       </section>
-  
-      <section class="form-registro" name="" action="">
-          <h4>Inicio de Sesión</h4>
-          <script type="text/javascr"></script>
-          <form action="/login" method="POST">
-            @csrf
-            <label for="correo">Email</label>
-            <input class="controls" type="text" name="correo" id="email" placeholder="ejemplo@uaeh.edu.mx">
-            <label for="password">Contraseña</label>
-            <input class="controls" type="password" name="password" id="Contra" >
-            <input class="botons" type="submit" value="Iniciar" />
+      
+      <section class="form-registro">
 
-            <a class="a" href="#">¿Olvidaste tu Contraseña?</a>
-            <a class="a" href="/registro">¿NO Tienes Cuenta?</a>
-          </form>
       </section>
-      <pre>
-       
-      </pre>
       <footer class="footer">
         <div class="ubicacion">
           <h4>Ubicación</h4>

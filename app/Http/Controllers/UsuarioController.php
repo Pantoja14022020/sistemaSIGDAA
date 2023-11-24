@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Usuario;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Hash;
 
 class UsuarioController extends Controller
 {
@@ -28,7 +29,8 @@ class UsuarioController extends Controller
         $usuario->cargo_o_funcion = $request->cargo_o_funcion;
         $usuario->ext_telefonica = $request->ext_telefonica;
         $usuario->correo = $request->correo;
-        $usuario->contraseña = $request->contraseña;
+        //$usuario->password = $request->contraseña; Este no encripta la contraseña
+        $usuario->password = Hash::make($request->contraseña);//Aqui hacemos hash a la contraseña
 
         $usuario->save();
 

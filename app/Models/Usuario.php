@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model;
+use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /*"tipo_usuario":"Responsable de Archivo"
 "nombre":"Daniel"
@@ -19,10 +21,11 @@ use Jenssegers\Mongodb\Eloquent\Model;
 "correo":"tl419411@uaeh.edu.mx"
 "contraseña":"1234567890"*/
 
-
-class Usuario extends Model
+//extends Model
+class Usuario extends Model implements Authenticatable
 {
     use HasFactory;
+    use AuthenticatableTrait;
     protected $connection = 'mongodb';
     protected $collection = 'usuario';
 }
